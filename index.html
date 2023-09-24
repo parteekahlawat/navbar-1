@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Simple Navbar</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200&display=swap');
+
+        body {
+            background-color: rgb(255, 64, 0);
+        }
+        .header {
+            background-color: rgb(255, 64, 0);
+            overflow: hidden;
+            display: flex;
+            justify-content: space-between;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .header a {
+            text-decoration: none;
+            padding: 10px 12px;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .header .uppernavbar a:hover,
+        .header .lowernavbar a:hover {
+            color: blue;
+        }
+
+        .header .lowernavbar a {
+            color: rgb(255, 64, 0);
+        }
+
+        .header .uppernavbar a {
+            color: white;
+        }
+
+        .header .rightside {
+            display: block;
+            align-items: center;
+        }
+
+        .header .rightside .upper,
+        .header .rightside .lower {
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+        }
+
+        .header .rightside .uppernavbar {
+            display: flex;
+        }
+
+        .header .rightside .lowernavbar {
+            padding-inline: 1rem;
+            padding-top: .3rem;
+            display: inline-block;
+            background-color: white;
+            color: rgb(255, 64, 0);
+            border-top-left-radius: 2rem;
+            border-bottom-right-radius: 2rem;
+        }
+
+        .header .leftside .bob-img {
+            padding-left: .5rem;
+            border-left: .1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .header .iitb-logo {
+            max-width: 4rem;
+            padding-right: .4rem;
+            max-height: 4rem;
+        }
+
+        .login {
+            background-color: blue;
+            margin: .5rem;
+            margin-inline: 1.5rem;
+            padding-inline: 1rem;
+            padding-block: .4rem;
+            border-radius: .8rem;
+            font-size: 1rem;
+            font-weight: 700;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .login:hover {
+            background-color: darkblue;
+        }
+
+        .upper {
+            display: inline;
+            margin-right: 10px;
+        }
+
+        .icons {
+            display: flex;
+            align-items: center;
+        }
+
+        .icons i {
+            padding-inline: .6rem;
+            font-size: 1.5rem;
+            border-inline: .1px solid rgba(255, 255, 255, 0.2);
+        }
+        .dropdown .dropbtn {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1rem;
+            padding-inline: 1rem;
+            padding-block: .6rem;
+            border: none;
+            outline: none;
+            color: white;
+            background-color: inherit;
+            margin: 0;
+            cursor: pointer;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            min-width: 160px;
+            z-index: 1;
+        }
+        .dropdown-content a {
+            float: none;
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+        .dropdown:hover .dropbtn {
+            background-color: rgb(255, 64, 0);
+            color: blue;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        #hamburger-icon {
+            margin: auto 0;
+            display: none;
+            cursor: pointer;
+        }
+
+        #hamburger-icon div {
+            width: 35px;
+            height: 3px;
+            background-color: white;
+            margin: 6px 0;
+            transition: 0.4s;
+        }
+
+        .open .bar1 {
+            -webkit-transform: rotate(-45deg) translate(-6px, 6px);
+            transform: rotate(-45deg) translate(-6px, 6px);
+        }
+
+        .open .bar2 {
+            opacity: 0;
+        }
+
+        .open .bar3 {
+            -webkit-transform: rotate(45deg) translate(-6px, -8px);
+            transform: rotate(45deg) translate(-6px, -8px);
+        }
+
+        .open .mobile-menu {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 50px;
+            left: 0;
+            height: calc(100vh - 50px);
+            width: 100%;
+            color: rgb(255, 64, 0);
+        }
+
+        .mobile-menu li {
+            margin-bottom: 10px;
+        }
+        .mobile-menu a{
+            color: white;
+        }
+        @media only screen and (max-width: 700px) {
+            .header .rightside {
+                display: none;
+            }
+
+            #hamburger-icon {
+                display: block;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="leftside">
+            <img class="iitb-logo" src="iit-bombay-logo.png" alt="Logo">
+            <img class="bob-img" src="bob-world-logo.svg" alt="Logo">
+        </div>
+
+        <div class="rightside">
+            <div class="upper">
+                <div class="uppernavbar">
+                    <a href="#">Save</a>
+                    <a href="#">Invest</a>
+                    <a href="#">Borrow</a>
+                    <a href="#">Shop</a>
+                    <div class="dropdown">
+                        <button class="dropbtn">Dropdown &#9660;</button>
+                        <div class="dropdown-content">
+                            <a href="#item1">Item 1</a>
+                            <a href="#item2">Item 2</a>
+                            <a href="#item3">Item 3</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="icons">
+                    <i class="fa fa-whatsapp"></i>
+                    <i class="fa fa-facebook-official" aria-hidden="true"></i>
+                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                    <i class="fa fa-university" aria-hidden="true"></i>
+                </div>
+            </div>
+
+
+            <div class="lower">
+                <div class="lowernavbar">
+                    <a href="#">Home</a>
+                    <a href="#">Resources</a>
+                    <a href="#">Events</a>
+                    <a href="#">Teams</a>
+                    <a href="#">About</a>
+                    <a href="#">Resources</a>
+                    <a href="#">Events</a>
+                    <a href="#">Teams</a>
+                    <a href="#">About</a>
+                </div>
+                <div class="btn-login">
+                    <button class="login">Login</button>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="hamburger-icon" onclick="toggleMobileMenu(this)">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+            <ul class="mobile-menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="/">Products</a></li>
+                <li><a href="/">About</a></li>
+                <li><a href="/">Home</a></li>
+                <li><a href="/">Products</a></li>
+                <li><a href="/">About</a></li>
+                <li><a href="/">Home</a></li>
+                <li><a href="/">Products</a></li>
+                <li><a href="/">About</a></li>
+
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function toggleMobileMenu(menu) {
+            menu.classList.toggle('open');
+        }
+    </script>
+</body>
+
+</html>
